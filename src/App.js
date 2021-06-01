@@ -1,13 +1,40 @@
+
+import products from "./products";
+
+
 import './App.css';
 function App() {
+
+
+  const descr = products.map((product) => (<div className="div_one">
+    
+    <img className="iphone" src={product.image}/>
+
+
+<p>
+  {product.name}
+</p>
+
+
+<p>
+{product.Price}
+</p>
+
+
+  </div>
+ ));
   return (
     <div >
       <header className="App-header">
-            <p>Best Store</p>
-          <description>its a new shop </description>
-         <img className="image" src=" https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvcHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80 "/>
-            
-      </header>
+            <p>Phone Store</p>
+          <description>Apple </description>
+         <img className="image_One" src=" https://support.apple.com/content/dam/edam/applecare/images/en_US/psp/featured-section-give-back-trade-in_2x.jpg "/>
+         </header>
+
+  <div className = "Row">      
+
+{descr}
+   </div>
     </div>
   );
 }

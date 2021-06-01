@@ -8,10 +8,34 @@
 }
 
 
-.image{
-width: 75%;
-height: 75%;
+.div_one{
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 }
+.Row{
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+.iphone{
+
+
+margin-left: 150pt;
+width: 300px;
+  height: 200px;
+  
+}
+.image_One{
+width: 75%;
+height : 75%;
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
