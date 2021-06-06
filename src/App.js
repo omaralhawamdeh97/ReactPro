@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import {ThemeProvider} from "styled-components"
 import { Head,ThemeButton, ImageSize,GlobalStyle} from "./Styles"
 import ProductList from "./component/ProductList"
+
 import Home from "./component/Home"
 import './App.css';
+//import products from "./products";
+import ProductDetal from "./component/ProductDetail"
+//import productItem from "./component/ProductItem"
 
 
 const theme = {
@@ -24,6 +28,14 @@ const theme = {
 
 function App() {
 
+const setView = ()=>{
+  if (currentProduct)
+  return<ProductDetal product = {currentProduct} setCurrentProduct={setCurrentProduct}/>
+else return <ProductList setCurrentProduct={setCurrentProduct}/>
+
+
+}
+const  [currentProduct, setCurrentProduct] = useState(null);
   const  [color, setcolor] = useState(theme.light);
     const swit =( )=>{
 
@@ -35,14 +47,14 @@ function App() {
   
       <GlobalStyle/>
       <Head>
-
-      <ThemeButton onClick= {(swit)} >
+          <ThemeButton onClick= {(swit)} >
         Dark Theme
       </ThemeButton>
-       <Home/>
+      
+             <Home/>
        <ImageSize alt = "phon" src="https://static.toiimg.com/photo/71335454.cms"/>
-      </Head>
-      <ProductList/> 
+      </Head>{setView()}
+
       </ThemeProvider>
   );
 }
