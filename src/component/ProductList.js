@@ -7,10 +7,12 @@ import SearchBar from "./SearchBar";
 const ProductList =(props )=>{
   const  [query, setQuery] = useState("");
 
- const descr = 
- products.filter((product) => product.name.includes(query)).map((product)=> 
-  <ProductItem product={product} key={product.id}setCurrentProduct={props.setCurrentProduct} />
-  ); 
+ let descr =
+props.products.filter((product) => product.name.includes(query)).map((product)=> 
+  <ProductItem product={product} key={product.id}setCurrentProduct={props.setCurrentProduct} 
+deleteproduct={props.deleteproduct} />
+  );   
+ 
 return (
     <Flxii>
   <SearchBar setQuery={setQuery}/>

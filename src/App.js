@@ -5,7 +5,7 @@ import ProductList from "./component/ProductList"
 
 import Home from "./component/Home"
 import './App.css';
-//import products from "./products";
+import products from "./products";
 import ProductDetal from "./component/ProductDetail"
 //import productItem from "./component/ProductItem"
 
@@ -28,13 +28,21 @@ const theme = {
 
 function App() {
 
+  const  [_products , setProduct  ] = useState(products );
+
+const deleteproduct=(productId)=>{
+let newproduct =_products.filter(product=>product.id!==productId)
+setProduct(newproduct)
+}
 const setView = ()=>{
   if (currentProduct)
   return<ProductDetal product = {currentProduct} setCurrentProduct={setCurrentProduct}/>
-else return <ProductList setCurrentProduct={setCurrentProduct}/>
+  else return <ProductList setCurrentProduct={setCurrentProduct }products={_products}deleteproduct={deleteproduct}/>
 
 
 }
+
+
 const  [currentProduct, setCurrentProduct] = useState(null);
   const  [color, setcolor] = useState(theme.light);
     const swit =( )=>{

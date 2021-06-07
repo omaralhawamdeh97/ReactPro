@@ -19,14 +19,25 @@ export const ListWrapper = styled.div`
   justify-content: center;
   display: flex;
 `;
-  export const ThemeButton = styled.button`
-  font-size: 1em;
-  margin: 1.25em;
-  padding: 0.25em 1em;
-  border-radius: 3px;
-  background-color: ${(props) => props.theme.mainColor};
-  color: ${(props) => props.theme.backgroundColor};
+export const ThemeButton = styled.button`
+font-size: 1em;
+margin: 1.25em;
+padding: 0.25em 1em;
+border-radius: 3px;
+background-color: ${(props) => props.theme.mainColor};
+color: ${(props) => props.theme.backgroundColor};
 `;
+
+
+export const DeleteButton = styled.button`
+font-size: 1em;
+margin: 1.25em;
+padding: 0.25em 1em;
+border-radius: 3px;
+background-color: ${(props) => props.theme.mainColor};
+color: ${(props) => props.theme.red};
+`;
+
 export const Flxii = styled.div `
 display: flex;
 flex-direction: column;
