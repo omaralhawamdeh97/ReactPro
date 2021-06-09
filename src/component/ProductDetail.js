@@ -1,21 +1,34 @@
 
-import {Flxii, PhonePic} from "../Styles"
+import { Redirect, Router, useParams } from "react-router";
+import { Link } from "react-router-dom";
+import products from "../products";
+import {Flxii, Logo, PhonePic} from "../Styles"
 
 const ProductDetal  = (props)=> {
-    return (
-        <div><Flxii>
+  const  productSlug  = useParams().productSlug
+  const product = props.products.find((product) => product.Slug === productSlug);
+if(!product) return <Redirect to ="/"/>
 
-        <PhonePic alt = {props.product.name} src={props.product.image}/>
-        <p>
-          {props.product.name}
+
+
+
+  return (
+        <div><Flxii>
+<Link
+>
+        <PhonePic alt = {product.name} src={product.image}/>
+       </Link> <p>
+          {product.name}
         </p>
       
         <p>
-        {props.product.Price}
+        {product.Price}
         </p>      <p>
-          {props.product.description}
+          {product.description}
         </p>
-        <button onClick={() =>props.setCurrentProduct(null)}>go back </button>
+
+        
+        <Logo to = "/">Go Back </Logo>
 </Flxii>
           </div>);
 

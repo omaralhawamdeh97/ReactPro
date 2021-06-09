@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import {ThemeProvider} from "styled-components"
 import { Head,ThemeButton, ImageSize,GlobalStyle} from "./Styles"
 import ProductList from "./component/ProductList"
-
+import {Switch,Route } from "react-router"
 import Home from "./component/Home"
 import './App.css';
 import products from "./products";
-import ProductDetal from "./component/ProductDetail"
+import ProductDetail from "./component/ProductDetail"
 //import productItem from "./component/ProductItem"
+
+
+import NavBar from "./component/NavBar";
 
 
 const theme = {
@@ -34,34 +37,43 @@ const deleteproduct=(productId)=>{
 let newproduct =_products.filter(product=>product.id!==productId)
 setProduct(newproduct)
 }
-const setView = ()=>{
-  if (currentProduct)
-  return<ProductDetal product = {currentProduct} setCurrentProduct={setCurrentProduct}/>
-  else return <ProductList setCurrentProduct={setCurrentProduct }products={_products}deleteproduct={deleteproduct}/>
-
-
-}
-
 
 const  [currentProduct, setCurrentProduct] = useState(null);
-  const  [color, setcolor] = useState(theme.light);
-    const swit =( )=>{
+const [currentTheme, setCurrentTheme] = useState("light");
 
-  if (color===theme.light) setcolor(theme.dark )
-   else setcolor(theme.light )
-}
-  return (<ThemeProvider theme={color}>
+const toggleTheme = () =>
+setCurrentTheme(currentTheme === "light" ? "dark" : "light");
+
+  return (    <ThemeProvider theme={theme[currentTheme]}>
+
     
   
       <GlobalStyle/>
+      <NavBar currentTheme={currentTheme} toggleTheme={toggleTheme} />
       <Head>
-          <ThemeButton onClick= {(swit)} >
-        Dark Theme
-      </ThemeButton>
-      
-             <Home/>
-       <ImageSize alt = "phon" src="https://static.toiimg.com/photo/71335454.cms"/>
-      </Head>{setView()}
+      <Switch>
+      <Route exact path="/products/:productSlug">
+  <ProductDetail products = {_products}
+  deleteproduct={deleteproduct}/>
+
+</Route>
+<Route exact path="/products">
+<ProductList setCurrentProduct={setCurrentProduct }
+products={_products}deleteproduct={deleteproduct}/>
+
+</Route>
+
+      <Route exact path="/">
+      <Home/>  
+
+      </Route>
+
+
+
+ </Switch>
+
+      </Head>
+           
 
       </ThemeProvider>
   );

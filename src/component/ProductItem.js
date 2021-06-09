@@ -1,18 +1,22 @@
 import { PhonePic } from "../Styles";
 import DeleteProduct from "../buttons/DeleteProduct"
+import { Link } from "react-router-dom";
 const ProductItem = (props) => {
   const product=props.product;
     return (
-        <div>
-        <PhonePic onClick={() =>props.setCurrentProduct(props.product)} alt = {props.product.name} src={props.product.image}/>
-        <p>
-        {props.product.name}
+        <div><Link to={`/products/${product.Slug}`} >
+        <PhonePic alt = {product.name} src={product.image}/>
+    
+        </Link>
+
+<p>
+        {product.name}
         </p>
       
         <p>
-        {props.product.Price}
+        {product.Price}
         </p> 
-        <DeleteProduct deleteproduct ={props.deleteproduct} productId={props.product.id}/>    
+        <DeleteProduct deleteproduct ={props.deleteproduct} productId={product.id}/>    
           </div>);
   };
   

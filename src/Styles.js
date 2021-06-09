@@ -1,3 +1,4 @@
+import { NavLink,Link } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
@@ -28,6 +29,14 @@ background-color: ${(props) => props.theme.mainColor};
 color: ${(props) => props.theme.backgroundColor};
 `;
 
+export const Click = styled.button`
+font-size: 1em;
+margin: 1.25em;
+padding: 0.25em 1em;
+border-radius: 3px;
+color: red;
+`;
+
 
 export const DeleteButton = styled.button`
 font-size: 1em;
@@ -46,9 +55,46 @@ align-items: center;
 margin-top:10px;
 
 `;
+
+export const Navig = styled.div `
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+margin-top:px;
+
+`;
+
+export const Logo = styled(Link)`
+font-size: 1em;
+margin: 1.25em;
+padding: 0.25em 1em;
+border-radius: 3px;
+background-color: ${(props) => props.theme.mainColor};
+color: ${(props) => props.theme.backgroundColor};
+
+`
+
+
+export const Nav = styled(NavLink)`
+
+font-size: 1em;
+margin: 1.25em;
+padding: 0.25em 1em;
+border-radius: 3px;
+background-color: ${(props) => props.theme.mainColor};
+color: ${(props) => props.theme.backgroundColor};
+
+&.active{
+  background-color:green;
+
+}
+
+  `
+
 export const ImageSize = styled.img `
-    width: 50%;
-    height : 50%;
+    width: 40%;
+    height : 40%;
     `
 
     export const Head = styled.head

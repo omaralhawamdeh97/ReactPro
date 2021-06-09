@@ -1,6 +1,8 @@
 const products = [
     {
       id:1,
+      Slug:"iphone-12",
+
       description :"its a old iphone",
 
       name: "iphone 11",
@@ -9,6 +11,8 @@ const products = [
     },
     {
       id:2,
+
+      Slug:"iphone-12",
       description :"its a new iphone",
       name: "iphone 12",
       Price: 1000,

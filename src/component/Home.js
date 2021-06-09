@@ -1,12 +1,16 @@
+import { Head, ImageSize } from "../Styles";
+
+
 const Home = () => {
 
-  return   <div >
+  return   <Head >
  
-        <p>Phone Store</p>
-    
-      <h1>Apple </h1>
+        <p>Apple Store</p>
 
-</div>
+      <ImageSize alt = "phon" src="https://static.toiimg.com/photo/71335454.cms"/>
+
+
+</Head>
 
   }
   export default Home;
